@@ -1,9 +1,9 @@
 <div class="app">
     <div class="title">Report Download</div>
     <div class="select">
-        <app-select-box [placeholder]="'Client Id'" [options]="cities"></app-select-box>
-        <app-select-box [placeholder]="'Process Id'" [options]="cities"></app-select-box>
-        <app-multi-select-box [placeholder]="'Users Id'" [options]="cities"></app-multi-select-box>
+        <app-select-box [placeholder]="'Client Id'" [options]="clientIdArray" [(ngModel)]="selectedClientId" (onChange)="selectClientId()"></app-select-box>
+        <app-select-box [placeholder]="'Process Id'" [options]="" [(ngModel)]="selectedProcessId" [disabled]="showProcessId"></app-select-box>
+        <app-multi-select-box [placeholder]="'Users Id'" [options]=""></app-multi-select-box>
         <app-calender></app-calender>
         <app-button [label]="'Apply'"></app-button>
         <app-button [label]="'Download'"></app-button>

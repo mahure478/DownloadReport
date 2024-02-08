@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-
+import { SharedserviceService } from 'src/shared/sharedservice.service';
+export interface ClientIdInterface {
+  id: number;
+  name: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,14 +11,31 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'download-report';
-  cities:any
-  constructor() {
-    this.cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-  ];
+  reportData = []
+  selectedClientId: string='' 
+  selectedProcessId: string=''
+  clientIdArray: ClientIdInterface[] =[];
+  showProcessId: boolean =false
+
+  constructor(private ss:SharedserviceService) {
+   
+  this.fetchClientId()
+  }
+  fetchClientId(){
+    this.ss.getUserDetail().subscribe((data:any)=>{
+      console.log(data)
+      this.reportData=data
+      this.reportData.filter((singlevalue: any) =>
+          this.clientIdArray.push({
+            id: singlevalue.id,
+            name: singlevalue.clientId,
+          })
+        );
+        
+    } )
+  }
+  selectClientId(){
+this.showProcessId = true
+
   }
 }

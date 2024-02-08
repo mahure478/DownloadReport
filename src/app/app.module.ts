@@ -13,6 +13,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { CalenderComponent } from './calender/calender.component';
 import { ButtonModule } from 'primeng/button';
 import { ButtonComponent } from './button/button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ButtonComponent } from './button/button.component';
     BrowserAnimationsModule,
     DropdownModule,
     CalendarModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
