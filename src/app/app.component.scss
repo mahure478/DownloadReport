@@ -1,0 +1,22 @@
+.app {
+    .title {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+    .select {
+        display: flex;
+        app-select-box {
+            margin-right: 15px;
+        }
+        app-multi-select-box {
+            margin-right: 15px;
+        }
+        app-calender{
+            margin-right: 15px;
+        }
+        app-button {
+            margin-right: 15px;
+        }
+    }
+   
+}
