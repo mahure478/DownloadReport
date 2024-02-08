@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-calender',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CalenderComponent {
   rangeDates: Date[] | undefined;
+
+  @Output() selectedDate = new EventEmitter<any>()
+
+  getDate() {
+    this.selectedDate.emit(this.rangeDates)
+  }
 }

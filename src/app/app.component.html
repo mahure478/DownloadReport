@@ -1,11 +1,11 @@
 <div class="app">
     <div class="title">Report Download</div>
     <div class="select">
-        <app-select-box [placeholder]="'Client Id'" [options]="clientIdArray" [(ngModel)]="selectedClientId" (onChange)="selectClientId()"></app-select-box>
-        <app-select-box [placeholder]="'Process Id'" [options]="" [(ngModel)]="selectedProcessId" [disabled]="showProcessId"></app-select-box>
-        <app-multi-select-box [placeholder]="'Users Id'" [options]=""></app-multi-select-box>
-        <app-calender></app-calender>
-        <app-button [label]="'Apply'"></app-button>
+        <app-select-box [placeholder]="'Client Id'" [options]="clientIdArray"  (changeEvent)="getClientId($event)"></app-select-box> 
+        <app-select-box [placeholder]="'Process Id'" [options]="processIdArray" (changeEvent)="getProcessId($event)"></app-select-box>
+        <app-multi-select-box [placeholder]="'Users Id'" [options]="userArr"(changeEvent)="getUserId($event)" ></app-multi-select-box>
+        <app-calender (selectedDate)="getDate($event)"></app-calender>
+        <app-button [label]="'Apply'" (click)="clickOnApply()"></app-button>
         <app-button [label]="'Download'"></app-button>
     </div>
 </div>

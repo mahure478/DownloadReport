@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -8,9 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class SelectBoxComponent {
   @Input() placeholder: string = ''
-  @Input() options: any
-
-  ngOnInit() {
-
+  @Input() options: any;
+  @Output() changeEvent = new EventEmitter<any>()
+  
+  selectClientId(event:any) {
+    this.changeEvent.emit(event)
   }
 }
